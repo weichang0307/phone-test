@@ -40,11 +40,11 @@ function init(){
 	window.addEventListener('keydown',keydown)
 	window.addEventListener('keyup',keyup)
 	window.addEventListener('mousedown',mousedown)
-	window.addEventListener('touchstart',mousedown)
+	//window.addEventListener('touchstart',mousedown)
 	window.addEventListener('mouseup',mouseup)
-	window.addEventListener('touchend',mouseup)
+	//window.addEventListener('touchend',mouseup)
 	window.addEventListener('mousemove',mousemove)
-	window.addEventListener('touchmove',mousemove)
+	//window.addEventListener('touchmove',mousemove)
 	window.addEventListener('resize',mysize)
 }
 function update(){
@@ -83,6 +83,7 @@ function keyup(e){
 	
 }
 function mousedown(e){
+	e.preventDefault()
 	ispress=true
 	controler.visible=true
 	let p=get_p_in_world(e.pageX,e.pageY)
@@ -91,12 +92,14 @@ function mousedown(e){
 	player.physic.position.x+=100
 }
 function mouseup(e){
+	e.preventDefault()
 	ispress=false
 	controler.visible=false
 	controler.btn_position.scale_in(0)
 
 }
 function mousemove(e){
+	e.preventDefault()
 	if(ispress){
 		let btnp=get_p_in_world(e.pageX,e.pageY)
 		let dis=btnp.minus(controler.position)
