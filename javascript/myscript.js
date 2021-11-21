@@ -22,6 +22,7 @@ let controler
 
 let ispress=false
 function init(){
+	console.log('vertion:2.0')
 	world=new physic_world(0,1000,50)
 	camera=new Camera(500,800)
 	
@@ -39,8 +40,11 @@ function init(){
 	window.addEventListener('keydown',keydown)
 	window.addEventListener('keyup',keyup)
 	window.addEventListener('mousedown',mousedown)
+	window.addEventListener('touchstart',mousedown)
 	window.addEventListener('mouseup',mouseup)
+	window.addEventListener('touchend',mouseup)
 	window.addEventListener('mousemove',mousemove)
+	window.addEventListener('touchmove',mousemove)
 	window.addEventListener('resize',mysize)
 }
 function update(){
