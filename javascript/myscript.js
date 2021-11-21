@@ -39,12 +39,12 @@ function init(){
 	//event
 	window.addEventListener('keydown',keydown)
 	window.addEventListener('keyup',keyup)
-	window.addEventListener('mousedown',mousedown)
-	//window.addEventListener('touchstart',mousedown)
-	window.addEventListener('mouseup',mouseup)
-	//window.addEventListener('touchend',mouseup)
-	window.addEventListener('mousemove',mousemove)
-	//window.addEventListener('touchmove',mousemove)
+	//window.addEventListener('mousedown',mousedown)
+	window.addEventListener('touchstart',mousedown)
+	//window.addEventListener('mouseup',mouseup)
+	window.addEventListener('touchend',mouseup)
+	//window.addEventListener('mousemove',mousemove)
+	window.addEventListener('touchmove',mousemove)
 	window.addEventListener('resize',mysize)
 }
 function update(){
