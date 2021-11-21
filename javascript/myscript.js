@@ -22,7 +22,7 @@ let controler
 
 let ispress=false
 function init(){
-	console.log('vertion:3.0')
+	console.log('vertion:4.0')
 	world=new physic_world(0,1000,50)
 	camera=new Camera(500,800)
 	
@@ -82,7 +82,8 @@ function keyup(e){
 	
 	
 }
-function mousedown(e){
+function mousedown(ev){
+	let e=ev.touches[0]
 	e.preventDefault()
 	ispress=true
 	controler.visible=true
@@ -91,14 +92,16 @@ function mousedown(e){
 	controler.position.y=p.y
 	player.physic.position.x+=100
 }
-function mouseup(e){
+function mouseup(ev){
+	let e=ev.touches[0]
 	e.preventDefault()
 	ispress=false
 	controler.visible=false
 	controler.btn_position.scale_in(0)
 
 }
-function mousemove(e){
+function mousemove(ev){
+	let e=ev.touches[0]
 	e.preventDefault()
 	if(ispress){
 		let btnp=get_p_in_world(e.pageX,e.pageY)
