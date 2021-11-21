@@ -22,7 +22,7 @@ let controler
 
 let ispress=false
 function init(){
-	console.log('vertion:2.0')
+	console.log('vertion:3.0')
 	world=new physic_world(0,1000,50)
 	camera=new Camera(500,800)
 	
@@ -88,6 +88,7 @@ function mousedown(e){
 	let p=get_p_in_world(e.pageX,e.pageY)
 	controler.position.x=p.x
 	controler.position.y=p.y
+	player.physic.position.x+=100
 }
 function mouseup(e){
 	ispress=false
