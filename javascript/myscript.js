@@ -84,7 +84,7 @@ function keyup(e){
 }
 function mousedown(ev){
 	let e=ev.touches[0]
-	e.preventDefault()
+	ev.preventDefault()
 	ispress=true
 	controler.visible=true
 	let p=get_p_in_world(e.pageX,e.pageY)
@@ -94,7 +94,7 @@ function mousedown(ev){
 }
 function mouseup(ev){
 	let e=ev.touches[0]
-	e.preventDefault()
+	ev.preventDefault()
 	ispress=false
 	controler.visible=false
 	controler.btn_position.scale_in(0)
@@ -102,7 +102,7 @@ function mouseup(ev){
 }
 function mousemove(ev){
 	let e=ev.touches[0]
-	e.preventDefault()
+	ev.preventDefault()
 	if(ispress){
 		let btnp=get_p_in_world(e.pageX,e.pageY)
 		let dis=btnp.minus(controler.position)
