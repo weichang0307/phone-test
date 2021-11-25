@@ -38,12 +38,12 @@ function init(){
 	controler=new Controler()
 	//event
 	window.addEventListener('keydown',keydown)
-	//window.addEventListener('keyup',keyup)
-	window.addEventListener('mousedown',mousedown)
-	//window.addEventListener('touchstart',mousedown)
-	window.addEventListener('mouseup',mouseup)
-	//window.addEventListener('touchend',mouseup)
-	window.addEventListener('mousemove',mousemove)
+	window.addEventListener('keyup',keyup)
+	//window.addEventListener('mousedown',mousedown)
+	window.addEventListener('touchstart',mousedown)
+	//window.addEventListener('mouseup',mouseup)
+	window.addEventListener('touchend',mouseup)
+	//window.addEventListener('mousemove',mousemove)
 	window.addEventListener('touchmove',mousemove)
 	window.addEventListener('resize',mysize)
 }
@@ -55,7 +55,7 @@ function update(){
 }
 function draw(){
 	camera.update(ctx)
-	background('black',-500,-800,1000,1600)
+	background('green',-500,-800,1000,1600)
 	
 	b1.draw()
 	for(let i of walls){
@@ -90,7 +90,6 @@ function mousedown(ev){
 	let p=get_p_in_world(e.pageX,e.pageY)
 	controler.position.x=p.x
 	controler.position.y=p.y
-	player.physic.position.x+=100
 }
 function mouseup(ev){
 	let e=ev.touches[0]
