@@ -38,12 +38,12 @@ function init(){
 	controler=new Controler()
 	//event
 	window.addEventListener('keydown',keydown)
-	window.addEventListener('keyup',keyup)
-	//window.addEventListener('mousedown',mousedown)
-	window.addEventListener('touchstart',mousedown)
-	//window.addEventListener('mouseup',mouseup)
-	window.addEventListener('touchend',mouseup)
-	//window.addEventListener('mousemove',mousemove)
+	//window.addEventListener('keyup',keyup)
+	window.addEventListener('mousedown',mousedown)
+	//window.addEventListener('touchstart',mousedown)
+	window.addEventListener('mouseup',mouseup)
+	//window.addEventListener('touchend',mouseup)
+	window.addEventListener('mousemove',mousemove)
 	window.addEventListener('touchmove',mousemove)
 	window.addEventListener('resize',mysize)
 }
