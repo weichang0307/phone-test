@@ -40,11 +40,11 @@ function init(){
 	window.addEventListener('keydown',keydown)
 	window.addEventListener('keyup',keyup)
 	//window.addEventListener('mousedown',mousedown)
-	window.addEventListener('touchstart',mousedown)
+	window.addEventListener('touchstart',mousedown,false)
 	//window.addEventListener('mouseup',mouseup)
-	window.addEventListener('touchend',mouseup)
+	window.addEventListener('touchend',mouseup,false)
 	//window.addEventListener('mousemove',mousemove)
-	window.addEventListener('touchmove',mousemove)
+	window.addEventListener('touchmove',mousemove,false)
 	window.addEventListener('resize',mysize)
 }
 function update(){
@@ -55,7 +55,7 @@ function update(){
 }
 function draw(){
 	camera.update(ctx)
-	background('green',-500,-800,1000,1600)
+	background('black',-500,-800,1000,1600)
 	
 	b1.draw()
 	for(let i of walls){
