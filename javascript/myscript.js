@@ -21,6 +21,7 @@ let player
 let controler
 
 let ispress=false
+let is_computer=iscomputer()
 function init(){
 	console.log('vertion:4.0')
 	console.log(iscomputer())
@@ -45,12 +46,17 @@ function init(){
 	//event
 	window.addEventListener('keydown',keydown)
 	window.addEventListener('keyup',keyup)
-	//window.addEventListener('mousedown',mousedown)
-	window.addEventListener('touchstart',mousedown)
-	//window.addEventListener('mouseup',mouseup)
-	window.addEventListener('touchend',mouseup)
-	//window.addEventListener('mousemove',mousemove)
-	window.addEventListener('touchmove',mousemove)
+	if(is_computer){
+		window.addEventListener('mousedown',mousedown)
+		window.addEventListener('mouseup',mouseup)
+		window.addEventListener('mousemove',mousemove)
+	}else{
+		window.addEventListener('touchstart',mousedown)
+		window.addEventListener('touchend',mouseup)
+		window.addEventListener('touchmove',mousemove)
+	}
+	
+	
 	window.addEventListener('resize',mysize)
 }
 function update(){
@@ -89,7 +95,12 @@ function keyup(e){
 	
 }
 function mousedown(ev){
-	let e=ev.touches[0]
+	let e
+	if(is_computer){
+		e=ev	
+	}else{
+		e=ev.touches[0]
+	}
 	ev.preventDefault()
 	ispress=true
 	controler.visible=true
@@ -98,7 +109,12 @@ function mousedown(ev){
 	controler.position.y=p.y
 }
 function mouseup(ev){
-	let e=ev.touches[0]
+	let e
+	if(is_computer){
+		e=ev	
+	}else{
+		e=ev.touches[0]
+	}
 	ev.preventDefault()
 	ispress=false
 	controler.visible=false
@@ -106,7 +122,13 @@ function mouseup(ev){
 
 }
 function mousemove(ev){
-	let e=ev.touches[0]
+	let e
+	if(is_computer){
+		e=ev	
+	}else{
+		e=ev.touches[0]
+	}
+	
 	ev.preventDefault()
 	if(ispress){
 		let btnp=get_p_in_world(e.pageX,e.pageY)
