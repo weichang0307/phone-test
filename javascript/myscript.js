@@ -1,3 +1,4 @@
+/*
 const canvas=document.getElementById('mycanvas');
 const ctx=canvas.getContext('2d');
 let ww=1000
@@ -201,7 +202,7 @@ init()
 
 
 
-
+*/
 
 window.addEventListener('load', function() {
 	console.log(1)
