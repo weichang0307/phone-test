@@ -15,3 +15,7 @@ canvas{
   left: 0;
   top: 0;
 }
+html,
+body{
+  overscroll-behavior-y: contain;
+}

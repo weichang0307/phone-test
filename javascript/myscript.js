@@ -1,4 +1,4 @@
-/*
+
 const canvas=document.getElementById('mycanvas');
 const ctx=canvas.getContext('2d');
 let ww=1000
@@ -202,39 +202,8 @@ init()
 
 
 
-*/
 
-window.addEventListener('load', function() {
-	console.log(1)
-    var isWindowTop = false;
-    var lastTouchY = 0;
 
-    var touchStartHandler = function(e) {
-        if (e.touches.length !== 1) return;
-        lastTouchY = e.touches[0].clientY;
-        isWindowTop = (window.pageYOffset === 0);
-    };
-
-    var touchMoveHandler = function(e) {
-        var touchY = e.touches[0].clientY;
-        var touchYmove = touchY - lastTouchY;
-        lastTouchY = touchY;
-
-        if (isWindowTop) {
-            isWindowTop = false;
-            // 阻擋移動事件
-            if (touchYmove > 0) {
-                e.preventDefault();
-                return;
-            }
-        }
-
-    };
-
-    document.addEventListener('touchstart', touchStartHandler, false);
-    document.addEventListener('touchmove', touchMoveHandler, false);
-
-});
 
 
 
