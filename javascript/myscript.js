@@ -23,7 +23,7 @@ let controler
 let ispress=false
 let is_computer=iscomputer()
 function init(){
-	console.log('vertion:4.0')
+	
 	console.log(iscomputer())
 	if(iscomputer()){
 		cc='black'
@@ -75,6 +75,9 @@ function draw(){
 	}
 	player.draw()
 	controler.draw()
+	ctx.fillStyle='yellow'
+	ctx.font='50px Arial'
+	ctx.fillText('version:4.1',-400,-700)
 
 	requestAnimationFrame(draw)
 }
@@ -200,7 +203,37 @@ init()
 
 
 
+window.addEventListener('load', function() {
+	console.log(1)
+    var isWindowTop = false;
+    var lastTouchY = 0;
 
+    var touchStartHandler = function(e) {
+        if (e.touches.length !== 1) return;
+        lastTouchY = e.touches[0].clientY;
+        isWindowTop = (window.pageYOffset === 0);
+    };
+
+    var touchMoveHandler = function(e) {
+        var touchY = e.touches[0].clientY;
+        var touchYmove = touchY - lastTouchY;
+        lastTouchY = touchY;
+
+        if (isWindowTop) {
+            isWindowTop = false;
+            // 阻擋移動事件
+            if (touchYmove > 0) {
+                e.preventDefault();
+                return;
+            }
+        }
+
+    };
+
+    document.addEventListener('touchstart', touchStartHandler, false);
+    document.addEventListener('touchmove', touchMoveHandler, false);
+
+});
 
 
 
