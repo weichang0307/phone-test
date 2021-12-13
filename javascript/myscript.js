@@ -12,7 +12,7 @@ let keys={}
 let world;
 let tt=0
 let camera
-
+let cc=''
 
 
 let b1
@@ -23,6 +23,12 @@ let controler
 let ispress=false
 function init(){
 	console.log('vertion:4.0')
+	console.log(iscomputer())
+	if(iscomputer()){
+		cc='black'
+	}else{
+		cc='green'
+	}
 	world=new physic_world(0,1000,50)
 	camera=new Camera(500,800)
 	
@@ -40,14 +46,11 @@ function init(){
 	window.addEventListener('keydown',keydown)
 	window.addEventListener('keyup',keyup)
 	//window.addEventListener('mousedown',mousedown)
-	window.addEventListener('touchstart',mousedown,passiveSupported
-	? { passive: true } : false)
+	window.addEventListener('touchstart',mousedown)
 	//window.addEventListener('mouseup',mouseup)
-	window.addEventListener('touchend',mouseup,passiveSupported
-	? { passive: true } : false)
+	window.addEventListener('touchend',mouseup)
 	//window.addEventListener('mousemove',mousemove)
-	window.addEventListener('touchmove',mousemove,passiveSupported
-	? { passive: true } : false)
+	window.addEventListener('touchmove',mousemove)
 	window.addEventListener('resize',mysize)
 }
 function update(){
@@ -58,7 +61,7 @@ function update(){
 }
 function draw(){
 	camera.update(ctx)
-	background('white',-500,-800,1000,1600)
+	background(cc,-500,-800,1000,1600)
 	
 	b1.draw()
 	for(let i of walls){
@@ -154,6 +157,17 @@ function mysize(){
 	}
 	ctx.save()
 	
+}
+function iscomputer(){
+	let iscom=true
+	let phone_char= ['Android', 'webOS', 'iPhone', 'iPad', 'iPod', 'BlackBerry', 'Windows Phone']
+	for(let i of phone_char){
+		if(navigator.userAgent.match(i)){
+			iscom=false
+			break
+		}
+	}
+	return iscom
 }
 
 init()
